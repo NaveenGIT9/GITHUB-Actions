@@ -1,0 +1,30 @@
+name: Learn Keywords
+
+on:
+  push:
+    branches:
+      - main      # runs when pushing to main branch
+  pull_request:
+    branches:
+      - dev      # runs when a PR targets dev branch
+
+jobs:
+  learn-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Create and run a JS file
+      - name: Run JavaScript
+        run: |
+          echo "console.log('Triggered by Push or PR 🚀');" > index.js
+          node index.js
