@@ -1,9 +1,6 @@
 name: Learn Keywords
 
 on:
-  push:
-    branches:
-      - main      # runs when pushing to main branch
   pull_request:
     branches:
       - dev      # runs when a PR targets dev branch
